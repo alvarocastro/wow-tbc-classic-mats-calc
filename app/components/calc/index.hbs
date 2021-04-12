@@ -1,0 +1,51 @@
+<div class="container main-container {{if this.isTwoColumns "main-container-layout-cols" "main-container-layout-list"}}">
+  <header class="d-flex justify-content-between align-items-center">
+    <h1 class="pt-3 h5">TBC Classic Mats Calc</h1>
+    <button type="button" class="btn btn-light btn-sm setting-btn d-none d-md-block" {{on "click" this.toggleLayout}}>
+      <Icon @name={{if this.isTwoColumns "columns" "list"}} />
+    </button>
+  </header>
+
+  <Alert
+    @visible={{this.isWelcomeMessageVisible}}
+    @onDismiss={{this.hideWelcomeMessage}}
+  >
+    <strong>Welcome!</strong> This is a simple calculator to know how many mats you need to gather/buy to get your raid consumes crafted! No more going back and forth to Wowhead to check the reagents for each recipe!
+  </Alert>
+
+  <Alert
+    @visible={{this.isHeadsUpMessageVisible}}
+    @onDismiss={{this.hideHeadsUpMessage}}
+  >
+    <strong>Heads-up!</strong> Some items are already hidden, just press the <Icon @name="config" /> button to select what consumables you want to see on the list. Every setting will be saved for your next visits!
+  </Alert>
+
+  <iframe class="ad mb-3" data-aa="1559179" src="//acceptable.a-ads.com/1559179" scrolling="no" allowtransparency="true" title="ad"></iframe>
+
+  <div class="row row-cols-1 {{if this.isTwoColumns "row-cols-md-2"}}">
+    <div class="col mb-3">
+      <CraftablesList
+        @craftables={{this.craftables}}
+        @onChangeCraftables={{this.handleCraftablesChange}}
+      />
+    </div>
+
+    <div class="col mb-3">
+      <ReagentsList
+        @shopList={{this.shopList}}
+      />
+    </div>
+  </div>
+
+  <footer class="text-center small mb-3">
+    <p class="text-muted m-0">
+      made by Moltar - US Kirtonos
+    </p>
+    <p class="text-muted mb-0">
+      <Icon @name="discord"/> Moltar#2857 for any issue/suggestion
+    </p>
+    <p class="text-center subfooter small mb-0 mt-2">
+      <a href="#" {{on "click" this.clearData}}>Clear stored data</a> | Version {{app-version versionOnly=true}}
+    </p>
+  </footer>
+</div>

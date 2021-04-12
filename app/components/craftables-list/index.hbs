@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h2 class="h6 mb-0 py-1">Consumables</h2>
+  <button type="button" class="btn btn-light btn-sm list-title-btn w-10" {{on "click" this.toggleMode}}>
+    <Icon @name={{if this.isInputMode "config" "calculator"}} />
+  </button>
+</div>
+<ul class="list-group mt-2">
+  {{#each this.rows key="item.id" as |row index|}}
+  <CraftablesList::Row
+    @index={{index}}
+    @item={{row.item}}
+    @amount={{row.amount}}
+    @hidden={{row.hidden}}
+    @input={{this.isInputMode}}
+    @onInputAmount={{fn this.setAmount row}}
+    @onChangeVisibility={{fn this.setVisibility row}}
+  />
+  {{/each}}
+</ul>

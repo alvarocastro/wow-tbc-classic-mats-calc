@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mats Calc - WoW TBC Classic</title>
+    <meta name="description" content="Simple calculator to know what mats and how many you need to craft your consumables for WoW: TBC Classic!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {{content-for "head"}}
+
+    <link rel="icon" type="image/png" href="{{rootURL}}favicon.png" />
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/wow-tbc-classic-mats-calc.css" />
+
+    {{content-for "head-footer"}}
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C6SKGKNM9"></script>
+    <script>
+      if (window.location.hostname !== 'localhost') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7C6SKGKNM9');
+      }
+    </script>
+  </head>
+  <body class="bg-dark text-light">
+    {{content-for "body"}}
+
+    <script>
+      const whTooltips = {
+        colorLinks: false,
+        iconizeLinks: true,
+        iconSize: 'small',
+        renameLinks: false,
+        hide: {
+          // extra: false,
+          droppedby: true,
+          dropchance: true,
+          reagents: true,
+          ilvl: true,
+          maxstack: false,
+          sellprice: true
+        }
+      };
+    </script>
+    <script src="https://wow.zamimg.com/widgets/power.js"></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/wow-tbc-classic-mats-calc.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

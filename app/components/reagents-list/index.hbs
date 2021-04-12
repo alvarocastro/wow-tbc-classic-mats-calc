@@ -1,0 +1,15 @@
+<h2 class="h6 mb-0 py-1">Mats needed</h2>
+{{#if this.rows.length}}
+<ul class="list-group mt-2">
+  {{#each this.rows key="item.id" as |row|}}
+  <ReagentsList::Row
+    @item={{row.item}}
+    @amount={{row.amount}}
+  />
+  {{/each}}
+</ul>
+{{else}}
+<Alert class="mt-2 text-center">
+  Select some consumables to start filling this!
+</Alert>
+{{/if}}
