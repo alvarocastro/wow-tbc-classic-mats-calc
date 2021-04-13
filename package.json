@@ -1,6 +1,6 @@
 {
   "name": "wow-tbc-classic-mats-calc",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Site built using emberjs to get a breakdown of mats needed for WoW TBC Classic consumables",
   "repository": "",
